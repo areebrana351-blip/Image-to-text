@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Image to Text AI – Extract Text from Images Online</title>
+
+    <meta name="description"
+          content="Convert images to editable text online with Image to Text AI. Upload JPG, PNG or other images and extract text quickly using AI-powered OCR.">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="author" content="Image to Text AI">
+
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Replace this URL later with your final custom subdomain -->
+    <link rel="canonical" href="https://YOUR-USERNAME.github.io/image-to-text-ai/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+          content="Image to Text AI – Extract Text from Images Online">
+    <meta property="og:description"
+          content="Extract editable text from images online with our free Image to Text AI OCR tool.">
+    <meta property="og:url"
+          content="https://YOUR-USERNAME.github.io/image-to-text-ai/">
+    <meta property="og:site_name" content="Image to Text AI">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title"
+          content="Image to Text AI – Extract Text from Images">
+    <meta name="twitter:description"
+          content="Convert images into editable text online with our free AI-powered OCR tool.">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- OCR Library -->
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"
+            defer></script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js" defer></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image to Text AI",
+        "url": "https://YOUR-USERNAME.github.io/image-to-text-ai/",
+        "description": "Free online tool for extracting editable text from images using OCR technology.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Image to Text AI
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+
+            <span class="badge">FREE ONLINE OCR TOOL</span>
+
+            <h1>Image to Text AI</h1>
+
+            <p class="hero-text">
+                Extract text from images quickly and easily.
+                Upload an image and convert its visible text into
+                editable, copyable text directly in your browser.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- OCR Tool -->
+    <section class="tool-section">
+        <div class="container">
+
+            <div class="tool-card">
+
+                <div class="upload-area" id="uploadArea">
+
+                    <div class="upload-icon">📷</div>
+
+                    <h2>Upload an Image</h2>
+
+                    <p>
+                        JPG, PNG, WEBP and other common image formats
+                    </p>
+
+                    <label for="imageInput" class="upload-button">
+                        Choose Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                        hidden
+                    >
+
+                    <p class="drop-text">
+                        or drag and drop an image here
+                    </p>
+
+                </div>
+
+
+                <!-- Image Preview -->
+                <div id="previewContainer" class="preview-container hidden">
+
+                    <h3>Image Preview</h3>
+
+                    <img
+                        id="imagePreview"
+                        src=""
+                        alt="Uploaded image preview"
+                    >
+
+                    <button
+                        type="button"
+                        id="extractButton"
+                        class="primary-button">
+                        Extract Text
+                    </button>
+
+                </div>
+
+
+                <!-- Progress -->
+                <div id="progressContainer" class="progress-container hidden">
+
+                    <p id="progressText">
+                        Preparing OCR...
+                    </p>
+
+                    <div class="progress-bar">
+                        <div id="progressBar"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- Result -->
+                <div id="resultContainer" class="result-container hidden">
+
+                    <div class="result-header">
+
+                        <h2>Extracted Text</h2>
+
+                        <button
+                            type="button"
+                            id="copyButton"
+                            class="secondary-button">
+                            Copy Text
+                        </button>
+
+                    </div>
+
+                    <textarea
+                        id="resultText"
+                        placeholder="Extracted text will appear here..."
+                        spellcheck="false">
+                    </textarea>
+
+                    <div class="result-actions">
+
+                        <button
+                            type="button"
+                            id="downloadButton"
+                            class="secondary-button">
+                            Download Text
+                        </button>
+
+                        <button
+                            type="button"
+                            id="clearButton"
+                            class="secondary-button">
+                            Clear
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Information -->
+    <section class="info-section">
+
+        <div class="container">
+
+            <h2>What Is Image to Text AI?</h2>
+
+            <p>
+                Image to Text AI is an online OCR tool that helps you
+                extract written or printed text from images. Instead of
+                typing text manually, you can upload an image and let
+                the OCR technology recognize the text for you.
+            </p>
+
+
+            <h2>How to Convert Image to Text</h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    <span>1</span>
+                    <h3>Upload an Image</h3>
+                    <p>
+                        Select a JPG, PNG, WEBP or another supported
+                        image from your device.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>2</span>
+                    <h3>Extract Text</h3>
+                    <p>
+                        Click the extract button and the OCR engine
+                        will process the image.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <span>3</span>
+                    <h3>Copy Your Text</h3>
+                    <p>
+                        Review the extracted text, copy it or download
+                        it as a text file.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <h2>Why Use an Image to Text Converter?</h2>
+
+            <p>
+                An image to text converter can be useful when you need
+                to copy information from screenshots, scanned documents,
+                notes, photographs, receipts or other images. OCR can
+                save time by turning visible text into editable content.
+            </p>
+
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq">
+
+                <details>
+                    <summary>
+                        What is Image to Text AI?
+                    </summary>
+
+                    <p>
+                        Image to Text AI is an OCR-based online tool
+                        that recognizes text contained in an image
+                        and converts it into editable text.
+                    </p>
+                </details>
+
+
+                <details>
+                    <summary>
+                        Is the Image to Text tool free?
+                    </summary>
+
+                    <p>
+                        Yes. This website is designed as a free
+                        browser-based image to text conversion tool.
+                    </p>
+                </details>
+
+
+                <details>
+                    <summary>
+                        What image formats can I use?
+                    </summary>
+
+                    <p>
+                        You can generally use common image formats
+                        such as JPG, JPEG, PNG and WEBP.
+                    </p>
+                </details>
+
+
+                <details>
+                    <summary>
+                        Can I copy the extracted text?
+                    </summary>
+
+                    <p>
+                        Yes. After processing an image, you can copy
+                        the recognized text or download it as a text file.
+                    </p>
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <p>
+            © 2026 Image to Text AI. All rights reserved.
+        </p>
+
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
