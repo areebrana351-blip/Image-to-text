@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mnbvcxk90ia-hub.github.io/image-to-text-ai/sitemap.xml
